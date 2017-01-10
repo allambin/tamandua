@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
+import { ProjectsComponent } from './projects/projects.component';
 import { routing } from "./app.routing";
 import { HomeComponent } from './home.component';
 
@@ -12,6 +13,7 @@ import { HomeComponent } from './home.component';
   declarations: [
     AppComponent,
     HeaderComponent,
+    ProjectsComponent,
     HomeComponent
   ],
   imports: [
