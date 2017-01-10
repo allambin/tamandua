@@ -1,0 +1,30 @@
+.jumbotron {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+.jumbotron h1 {
+    font-variant: small-caps;
+    margin-top: 0;
+}
+
+.jumbotron small {
+    font-size: 55%;
+}
+
+.jumbotron .small {
+    margin-top: -20px;
+}
+
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+}
