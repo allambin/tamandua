@@ -1,0 +1,16 @@
+table td.cell20 {
+    width: 20%;
+}
+
+table td.actions {
+    width: 10%;
+}
+
+p.actions:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
