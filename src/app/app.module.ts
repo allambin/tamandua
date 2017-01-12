@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -9,6 +9,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { routing } from "./app.routing";
 import { HomeComponent } from './home.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
+import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,15 @@ import { ProjectsListComponent } from './projects/projects-list/projects-list.co
     HeaderComponent,
     ProjectsComponent,
     HomeComponent,
-    ProjectsListComponent
+    ProjectsListComponent,
+    ProjectEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
