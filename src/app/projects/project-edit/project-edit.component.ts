@@ -17,7 +17,7 @@ export class ProjectEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-      this.initForm();
+    this.initForm();
   }
   
   private initForm() {
@@ -26,9 +26,9 @@ export class ProjectEditComponent implements OnInit {
     let projectDescription: string = "";
     
     this.projectForm = this.formBuilder.group({
-        code: [projectCode, Validators.required], // @TODO: custom validator
-        title: [projectTitle, Validators.required],
-        description: [projectDescription]
+      code: [projectCode, Validators.required], // @TODO: custom validator
+      title: [projectTitle, Validators.required],
+      description: [projectDescription]
     });
   }
 

@@ -2,8 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { AppConfigService } from './app.config.service';
 import { HeaderComponent } from './header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { routing } from "./app.routing";
@@ -27,7 +29,10 @@ import { ProjectEditComponent } from './projects/project-edit/project-edit.compo
     routing,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AppConfigService,
+    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
