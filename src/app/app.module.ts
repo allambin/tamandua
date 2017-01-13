@@ -6,10 +6,10 @@ import { APP_INITIALIZER } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppConfigService } from './app.config.service';
-import { HeaderComponent } from './header.component';
+import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { routing } from "./app.routing";
-import { HomeComponent } from './home.component';
+import { HomeComponent } from './home/home.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
 

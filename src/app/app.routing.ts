@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from "./home.component";
+import { HomeComponent } from "./home/home.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { PROJECTS_ROUTES } from "./projects/projects.routing";
 
