@@ -12,6 +12,9 @@ import { routing } from "./app.routing";
 import { HomeComponent } from './home/home.component';
 import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
 import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
+import { AuthComponent } from './auth/auth.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthService } from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ import { ProjectEditComponent } from './projects/project-edit/project-edit.compo
     ProjectsComponent,
     HomeComponent,
     ProjectsListComponent,
-    ProjectEditComponent
+    ProjectEditComponent,
+    AuthComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { ProjectEditComponent } from './projects/project-edit/project-edit.compo
   ],
   providers: [
     AppConfigService,
-    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true }
+    { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true },
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
