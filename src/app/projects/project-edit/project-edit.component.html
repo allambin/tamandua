@@ -1,7 +1,7 @@
 <h1 *ngIf="isNew">Create a project</h1>
 <h1 *ngIf="!isNew">Edit a project</h1>
 <hr>
-<form [formGroup]="projectForm">
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-xs-12">
       <div class="form-group">
@@ -11,7 +11,16 @@
             id="code"
             class="form-control"
             formControlName="code"
-            >
+            [formControl]="projectForm.controls['code']">
+      </div>
+      <div *ngIf="!projectForm.controls['code'].valid && projectForm.controls['code'].touched"
+          class="alert alert-danger">
+          <div [hidden]="!projectForm.controls['code'].errors.required">
+          Code is required
+        </div>
+        <div [hidden]="!projectForm.controls['code'].errors.pattern">
+          Code is invalid (alphanumeric characters only).
+        </div>
       </div>
     </div>
   </div>
@@ -24,7 +33,14 @@
             id="title"
             class="form-control"
             formControlName="title"
+            [formControl]="projectForm.controls['title']"
             >
+      </div>
+      <div *ngIf="!projectForm.controls['title'].valid && projectForm.controls['title'].touched"
+          class="alert alert-danger">
+          <div [hidden]="!projectForm.controls['title'].errors.required">
+          Title is required
+        </div>
       </div>
     </div>
   </div>
@@ -45,7 +61,8 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Save</button>
+      <button type="submit" class="btn btn-success">Save</button>
+      <!--<button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Save</button>-->
       <a class="btn btn-danger">Cancel</a>
     </div>
   </div>

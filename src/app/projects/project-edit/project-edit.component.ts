@@ -26,10 +26,14 @@ export class ProjectEditComponent implements OnInit {
     let projectDescription: string = "";
     
     this.projectForm = this.formBuilder.group({
-      code: [projectCode, Validators.required], // @TODO: custom validator
+      code: [projectCode, [Validators.required, Validators.pattern('[\\w]+')]],
       title: [projectTitle, Validators.required],
       description: [projectDescription]
     });
+  }
+  
+  public onSubmit() {
+      console.log(this.projectForm);
   }
 
 }
