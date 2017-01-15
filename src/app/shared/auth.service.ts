@@ -16,7 +16,11 @@ export class AuthService {
   }
   
   public isLoggedIn(): boolean {
-    return this.loggedIn;
+    if (localStorage.getItem('auth_token')) { 
+      return true;
+    } else {
+      return false;
+    }
   }
   
   public login(email: string, password: string) {
