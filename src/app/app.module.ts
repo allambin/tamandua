@@ -15,6 +15,7 @@ import { ProjectEditComponent } from './projects/project-edit/project-edit.compo
 import { AuthComponent } from './auth/auth.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './shared/auth.service';
+import { AuthGuard } from './shared/auth.guard';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AuthService } from './shared/auth.service';
   providers: [
     AppConfigService,
     { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true },
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
