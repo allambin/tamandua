@@ -12,6 +12,7 @@ import { AuthService } from '../../shared/auth.service';
 export class SigninComponent implements OnInit {
 
   signinForm: FormGroup;
+  errorMessage: string;
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router) { }
 
@@ -23,14 +24,19 @@ export class SigninComponent implements OnInit {
   }
   
   public onSubmit() {
-      this.authService.login(this.signinForm.value.email, this.signinForm.value.password)
-      .subscribe(result => {
+    this.authService.login(this.signinForm.value.email, this.signinForm.value.password)
+      .subscribe(
+        result => {
           if(result) {
               this.router.navigate(['']);
           } else {
-              console.log("LOGIN FAILED");
+              this.errorMessage = "An error occurred.";
           }
-      });
+        },
+        error => {
+          this.errorMessage = error.message;
+        }
+      );
   }
 
 }

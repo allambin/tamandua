@@ -26,39 +26,27 @@ export class AuthService {
     let options = new RequestOptions({ headers: headers });
     
     return this.http.post(apiUrl + 'users/login', { email: email, password: password }, options)
-        .map((response: Response) => {
-          return response.json();
-        })
-        .map(response => {
-          if(response.status == 401) {
-              return false;
-          }
+      .map((response: Response) => {
+        return response.json();
+      })
+      .map(response => {
+        if(!response.hasOwnProperty('auth_token')) {
+          return false;
+        }
           
-          this.loggedIn = true;
-          localStorage.setItem('auth_token', response.auth_token);
-          this.isLoggedInChange.next(this.loggedIn);
-          return true;
-        })
-        .catch(this.handleError);
+        this.loggedIn = true;
+        localStorage.setItem('auth_token', response.auth_token);
+        this.isLoggedInChange.next(this.loggedIn);
+        return true;
+      })
+      .catch((error: Response) => {
+        return Observable.throw(error.json());
+      });
   }
   
   public logout() {
     localStorage.removeItem('auth_token');
     this.loggedIn = false;
-  }
-  
-  private handleError (error: Response | any) {
-      console.log("PPPPPP");
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
   }
 
 }

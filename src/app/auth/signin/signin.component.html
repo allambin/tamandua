@@ -1,6 +1,7 @@
 <div class="container">
   <h1>Sign in</h1>
   <hr>
+  <div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
   <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="email">E-Mail</label>
