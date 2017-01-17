@@ -16,6 +16,8 @@ import { AuthComponent } from './auth/auth.component';
 import { SigninComponent } from './auth/signin/signin.component';
 import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
+import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.component';
+import { ConfirmDeleteService } from './shared/confirm-delete/confirm-delete.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { AuthGuard } from './shared/auth.guard';
     ProjectsListComponent,
     ProjectEditComponent,
     AuthComponent,
-    SigninComponent
+    SigninComponent,
+    ConfirmDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { AuthGuard } from './shared/auth.guard';
     AppConfigService,
     { provide: APP_INITIALIZER, useFactory: (config: AppConfigService) => () => config.load(), deps: [AppConfigService], multi: true },
     AuthService,
-    AuthGuard
+    AuthGuard,
+    ConfirmDeleteService
   ],
   bootstrap: [AppComponent]
 })

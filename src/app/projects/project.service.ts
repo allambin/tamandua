@@ -66,4 +66,14 @@ export class ProjectService {
       });
   }
 
+  public deleteProject(id: number) {
+    let apiUrl = this.appConfig.getParam("apiUrl");
+    let auth_token = localStorage.getItem('auth_token');
+
+    let url = apiUrl + 'projects/' + id + '?auth_token=' + auth_token;
+    return this.http.delete(url)
+          .map((response: Response) => true)
+          .catch((error: Response) => Observable.throw(error.json()));
+  }
+
 }

@@ -14,3 +14,7 @@ p.actions:after {
     clear: both;
     height: 0;
 }
+
+table td.actions a {
+    cursor: pointer;
+}
