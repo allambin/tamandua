@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
 import { FormArray, FormGroup, FormControl, Validator, Validators, FormBuilder } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -11,7 +11,7 @@ import { ProjectService } from '../project.service';
   templateUrl: './project-edit.component.html',
   styleUrls: ['./project-edit.component.css']
 })
-export class ProjectEditComponent implements OnInit {
+export class ProjectEditComponent implements OnInit, OnDestroy {
 
   public isNew: boolean = true;
   private projectForm: FormGroup;
@@ -73,6 +73,10 @@ export class ProjectEditComponent implements OnInit {
       error => {
         this.errorMessage = error.message;
       });
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
