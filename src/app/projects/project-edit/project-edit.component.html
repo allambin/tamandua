@@ -1,6 +1,8 @@
 <h1 *ngIf="isNew">Create a project</h1>
 <h1 *ngIf="!isNew">Edit a project</h1>
 <hr>
+<div class="alert alert-success" role="alert" *ngIf="successMessage">{{successMessage}}</div>
+<div class="alert alert-danger" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
 <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="col-xs-12">
@@ -61,8 +63,7 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <button type="submit" class="btn btn-success">Save</button>
-      <!--<button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Save</button>-->
+      <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">Save</button>
       <a class="btn btn-danger">Cancel</a>
     </div>
   </div>

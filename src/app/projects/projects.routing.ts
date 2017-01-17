@@ -6,7 +6,7 @@ import { AuthGuard } from "../shared/auth.guard";
 export const PROJECTS_ROUTES: Routes = [
   { path: '', component: ProjectsListComponent },
   { path: 'new', component: ProjectEditComponent, canActivate: [AuthGuard] },
-  { path: ':id/edit', component: ProjectEditComponent }
+  { path: ':id/edit', component: ProjectEditComponent, canActivate: [AuthGuard] }
 ];
 
 export const projectsRouting = RouterModule.forChild(PROJECTS_ROUTES);
