@@ -1,0 +1,11 @@
+table td.actions {
+    width: 10%;
+}
+
+table .id {
+    width: 5%;
+}
+
+table th.cell50 {
+    width: 50%;
+}

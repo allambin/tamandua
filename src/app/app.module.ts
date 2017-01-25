@@ -18,6 +18,7 @@ import { AuthService } from './shared/auth.service';
 import { AuthGuard } from './shared/auth.guard';
 import { ConfirmDeleteComponent } from './shared/confirm-delete/confirm-delete.component';
 import { ConfirmDeleteService } from './shared/confirm-delete/confirm-delete.service';
+import { ProjectViewComponent } from './projects/project-view/project-view.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ConfirmDeleteService } from './shared/confirm-delete/confirm-delete.ser
     ProjectEditComponent,
     AuthComponent,
     SigninComponent,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    ProjectViewComponent
   ],
   imports: [
     BrowserModule,
